@@ -1,16 +1,12 @@
 import GlobalStyles from "./globalStyles";
+import { HomeCinema } from "./ pages/cinema/home";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <div>
-        <h4>
-          minha primeira aplicacao
-          dasifdjgsdaoflksadgkofsdkoghsfdokgoksadokgsdaokoksdakfodsokfdaskofdasok
-        </h4>
-        <h4>mentira</h4>
-      </div>
+
+      <HomeCinema />
     </>
   );
 }
