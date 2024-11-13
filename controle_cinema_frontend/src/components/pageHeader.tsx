@@ -17,6 +17,12 @@ const Card = styled.div<CardProps>`
     width: 2.3rem;
   }
 
+  h2 {
+    font-family: "Original Surfer", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
   .fai {
     font-size: 30px;
     color: ${(props) => props.colorIcon ?? "black"};
@@ -29,6 +35,7 @@ const Card = styled.div<CardProps>`
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 20px;
 `;
 
 export const PageHeader = ({
