@@ -98,7 +98,7 @@ const movieData = {
     "https://i0.wp.com/geekpopnews.com.br/wp-content/uploads/2024/07/beetlejuice-2-thumbnail.jpg?resize=1201%2C640&ssl=1",
 };
 
-export const CardMovie = () => {
+export const MoviesCard = () => {
   return (
     <Card>
       <CardBody>

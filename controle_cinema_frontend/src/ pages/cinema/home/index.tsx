@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PageHeader } from "../../../components/pageHeader";
 import movieIcon from "../../../assets/movie-icon.png";
 
-import { CardMovie } from "../../../components/movie/cardMovie";
+import { MoviesCard } from "../../../components/movie/cardMovie";
 import { HeaderDates } from "../../../components/movie/headerDatesMovie";
 
 const Background = styled.div`
@@ -21,7 +21,7 @@ export const HomeCinema = () => {
         text="Filmes em cartazes"
       />
       <HeaderDates />
-      <CardMovie />
+      <MoviesCard />
     </Background>
   );
 };
