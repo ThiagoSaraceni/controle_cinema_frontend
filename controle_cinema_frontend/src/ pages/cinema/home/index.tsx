@@ -3,6 +3,7 @@ import { PageHeader } from "../../../components/pageHeader";
 import movieIcon from "../../../assets/movie-icon.png";
 
 import { CardMovie } from "../../../components/movie/cardMovie";
+import { HeaderDates } from "../../../components/movie/headerDatesMovie";
 
 const Background = styled.div`
   padding: 92px 200px 92px 200px;
@@ -19,6 +20,7 @@ export const HomeCinema = () => {
         altImg="Claquete cinema"
         text="Filmes em cartazes"
       />
+      <HeaderDates />
       <CardMovie />
     </Background>
   );

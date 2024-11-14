@@ -35,7 +35,7 @@ const Card = styled.div<CardProps>`
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 `;
 
 export const PageHeader = ({
