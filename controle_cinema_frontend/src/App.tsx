@@ -1,12 +1,11 @@
 import GlobalStyles from "./globalStyles";
-import { HomeCinema } from "./ pages/cinema/home";
+import { AllRoutes } from "./routes";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-
-      <HomeCinema />
+      <AllRoutes />
     </>
   );
 }
