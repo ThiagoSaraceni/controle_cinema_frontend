@@ -87,6 +87,12 @@ const CardImg = styled.div`
   }
 `;
 
+const ImgBgCard = styled.div`
+  background-image: url("card-image.png");
+  background-position: right;
+  background-size: cover;
+`;
+
 const movieData = {
   filmeName: "Beetlejuice: Os Fantasmas Se Divertem",
   description:
@@ -101,32 +107,34 @@ const movieData = {
 export const MoviesCard = () => {
   return (
     <Card>
-      <CardBody>
-        <CardImg>
-          <img src={movieData?.img_url} alt="imagem-filme" />
-          <div className="movie">
-            <div>
-              <div className="justify-content-between">
-                <h4>{movieData?.filmeName}</h4>
-                <span className="minute">1h32</span>
+      <ImgBgCard>
+        <CardBody>
+          <CardImg>
+            <img src={movieData?.img_url} alt="imagem-filme" />
+            <div className="movie">
+              <div>
+                <div className="justify-content-between">
+                  <h4>{movieData?.filmeName}</h4>
+                  <span className="minute">1h32</span>
+                </div>
+                <hr />
+                <p>{movieData.description}</p>
+                <Badge>ANIMAÇÃO</Badge>
               </div>
-              <hr />
-              <p>{movieData.description}</p>
-              <Badge>ANIMAÇÃO</Badge>
+              <div>
+                <label className="text-yellow">SALAS: </label>
+                <label className="text-blue">DUBLADO</label>
+                <time>19:49</time>
+              </div>
+              <div>
+                <label className="text-yellow">SALAS: </label>
+                <label className="text-blue">LEGENDADO</label>
+                <time>19:49</time>
+              </div>
             </div>
-            <div>
-              <label className="text-yellow">SALAS: </label>
-              <label className="text-blue">DUBLADO</label>
-              <time>19:49</time>
-            </div>
-            <div>
-              <label className="text-yellow">SALAS: </label>
-              <label className="text-blue">LEGENDADO</label>
-              <time>19:49</time>
-            </div>
-          </div>
-        </CardImg>
-      </CardBody>
+          </CardImg>
+        </CardBody>
+      </ImgBgCard>
     </Card>
   );
 };
