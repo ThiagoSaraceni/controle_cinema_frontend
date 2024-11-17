@@ -10,8 +10,8 @@ export const BodyInfo = styled.div`
   }
 
   label {
-    display: inline-block;
     font-family: "Saira";
+    display: block;
     font-size: 20px;
     margin-bottom: 8px;
   }
@@ -23,10 +23,16 @@ export const BodyInfo = styled.div`
   }
 
   .bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: ${(props: any) => props.theme.colors[props.color]};
+    //desestruturando
     /* background-color: ${({ theme, color }: any) => theme.colors[color]};
     */
-    padding: 34px;
+    width: 96px;
+    height: 96px;
+    padding: 2.2rem;
     border-radius: 50%;
     font-size: 26px;
   }
@@ -34,4 +40,10 @@ export const BodyInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+`;
+
+export const Dflex = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `;
