@@ -12,6 +12,7 @@ export const Order = styled.div`
 
   .flex {
     display: flex;
+    align-items: center;
     gap: 22px;
   }
 
