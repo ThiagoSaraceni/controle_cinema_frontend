@@ -27,32 +27,30 @@ export const InfoMovie = () => {
   ];
 
   return (
-    <>
-      <Card>
-        <CardBody>
-          <S.Dflex>
-            <S.BodyInfo>
-              <img
-                src="https://i0.wp.com/geekpopnews.com.br/wp-content/uploads/2024/07/beetlejuice-2-thumbnail.jpg?resize=1201%2C640&ssl=1"
-                alt="blabla"
-              />
+    <Card>
+      <CardBody>
+        <S.Dflex>
+          <S.BodyInfo>
+            <img
+              src="https://i0.wp.com/geekpopnews.com.br/wp-content/uploads/2024/07/beetlejuice-2-thumbnail.jpg?resize=1201%2C640&ssl=1"
+              alt="blabla"
+            />
+            <div>
+              <label>Beatle Juice</label>
+              <h4>Filme</h4>
+            </div>
+          </S.BodyInfo>
+          {INFOS.map((item) => (
+            <S.BodyInfo color={item?.color}>
+              <div className="bg">{item?.icon}</div>
               <div>
-                <label>Beatle Juice</label>
-                <h4>Filme</h4>
+                <label>{item?.label}</label>
+                <h4>{item?.title}</h4>
               </div>
             </S.BodyInfo>
-            {INFOS.map((item) => (
-              <S.BodyInfo color={item?.color}>
-                <div className="bg">{item?.icon}</div>
-                <div>
-                  <label>{item?.label}</label>
-                  <h4>{item?.title}</h4>
-                </div>
-              </S.BodyInfo>
-            ))}
-          </S.Dflex>
-        </CardBody>
-      </Card>
-    </>
+          ))}
+        </S.Dflex>
+      </CardBody>
+    </Card>
   );
 };
