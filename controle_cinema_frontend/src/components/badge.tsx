@@ -3,17 +3,24 @@ import { ReactNode } from "react";
 
 interface BadgeProps {
   children: ReactNode;
+  thin?: boolean;
+  bgColor?: string;
 }
 
-const BadgeBody = styled.div`
-  background-color: #699bf7;
+const BadgeBody = styled.div<BadgeProps>`
   padding: 5px 6px 5px 6px;
-  border-radius: 6px;
   width: fit-content;
-  font-weight: 600;
+  border-radius: 6px;
+  background-color: ${({ bgColor }) => bgColor || "#699bf7"};
+  font-weight: ${({ thin }) => (thin ? 200 : 700)};
+
   font-family: "Inter", sans-serif;
 `;
 
-export const Badge = ({ children }: BadgeProps) => {
-  return <BadgeBody>{children}</BadgeBody>;
+export const Badge = ({ children, thin, bgColor }: BadgeProps) => {
+  return (
+    <BadgeBody bgColor={bgColor} thin={thin}>
+      {children}
+    </BadgeBody>
+  );
 };
