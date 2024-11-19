@@ -5,6 +5,7 @@ import { InfoMovie } from "./infoMovie";
 import { CardSeats } from "./seatsInfo";
 import { OrderSummary } from "../../../components/movie/orderSummary";
 import * as S from "./styles";
+import { ProgressBar } from "../../../components/movie/progressBar";
 
 const Bg = styled.div`
   padding: 92px 200px 92px 200px;
@@ -18,7 +19,7 @@ export const Seats = () => {
     <Bg>
       <Card>
         <CardBody>
-          <h4>oi</h4>
+          <ProgressBar />
         </CardBody>
       </Card>
       <InfoMovie />
