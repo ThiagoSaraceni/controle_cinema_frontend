@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const BodyInfo = styled.div`
   img {
     border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     background-color: #f0f0f0 !important;
   }
@@ -30,9 +30,8 @@ export const BodyInfo = styled.div`
     //desestruturando
     /* background-color: ${({ theme, color }: any) => theme.colors[color]};
     */
-    width: 96px;
-    height: 96px;
-    padding: 2.2rem;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     font-size: 26px;
   }

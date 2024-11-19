@@ -26,7 +26,8 @@ export const Icon = styled.div<IconProps>`
   padding: ${({ active }) => (active ? "12px" : "8px")};
   background-color: ${({ active }) => (active ? "#7367F0" : "#000000")};
   color: ${({ active }) => (active ? "#FFFFFF" : "#A259FF")};
-  border: ${({ passed }) => (passed ? "1px solid #00CFE8" : null)};
+  border: ${({ passed }) =>
+    passed ? "1px solid rgba(0, 207, 232, 0.7)" : null};
 `;
 
 export const Line = styled.div<IconProps>`

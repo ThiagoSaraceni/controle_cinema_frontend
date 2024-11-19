@@ -16,14 +16,13 @@ const DivHeader = styled.div`
   display: flex;
   justify-content: space-around;
   font-size: 2rem;
-  font-family: "Saira", serif;
-  font-optical-sizing: auto;
-  font-weight: 300 !important;
+  font-family: "Saira";
+  font-weight: 300;
   font-style: normal;
 `;
 
 const DayItem = styled.div<PropsDayItem>`
-  color: ${(props) => !props.isActive && "#737380"};
+  color: ${({ isActive }) => !isActive && "#737380"};
   cursor: pointer;
 `;
 
