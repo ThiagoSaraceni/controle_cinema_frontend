@@ -25,9 +25,11 @@ export const Icon = styled.div<IconProps>`
   border-radius: 50%;
   padding: ${({ active }) => (active ? "12px" : "8px")};
   background-color: ${({ active }) => (active ? "#7367F0" : "#000000")};
-  color: ${({ active }) => (active ? "#FFFFFF" : "#A259FF")};
+  color: ${({ active, passed }) =>
+    active ? "#FFFFFF" : passed ? "#A259FF" : "#171718"};
   border: ${({ passed }) =>
     passed ? "1px solid rgba(0, 207, 232, 0.7)" : null};
+  cursor: ${({ passed, active }) => (passed || active ? "pointer" : null)};
 `;
 
 export const Line = styled.div<IconProps>`
