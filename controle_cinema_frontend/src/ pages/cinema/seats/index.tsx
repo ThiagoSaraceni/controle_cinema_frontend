@@ -6,6 +6,7 @@ import { CardSeats } from "./seatsInfo";
 import { OrderSummary } from "../../../components/movie/orderSummary";
 import * as S from "./styles";
 import { ProgressBar } from "../../../components/movie/progressBar";
+import { FooterMovie } from "../../../components/movie/footer";
 
 const Bg = styled.div`
   padding: 92px 200px 92px 200px;
@@ -27,6 +28,7 @@ export const Seats = () => {
         <CardSeats />
         <OrderSummary />
       </S.Grid>
+      <FooterMovie txtBtnForward="ESCOLHER INGRESSOS" />
     </Bg>
   );
 };
