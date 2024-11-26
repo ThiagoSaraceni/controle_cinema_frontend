@@ -1,23 +1,18 @@
-import styled from "styled-components";
 import { Card } from "../../../components/card";
 import { CardBody } from "../../../components/cardBody";
+import * as S from "./styles";
 import { InfoMovie } from "./infoMovie";
 import { CardSeats } from "./seatsInfo";
 import { OrderSummary } from "../../../components/movie/orderSummary";
-import * as S from "./styles";
 import { ProgressBar } from "../../../components/movie/progressBar";
 import { FooterMovie } from "../../../components/movie/footer";
-
-const Bg = styled.div`
-  padding: 92px 200px 92px 200px;
-  color: white;
-  min-height: 100vh;
-  background-image: url("Frame 60.jpg");
-`;
+import * as GS from "../styles";
 
 export const Seats = () => {
+  const moreThanOneTicketsChoosen = true;
+
   return (
-    <Bg>
+    <GS.Background>
       <Card>
         <CardBody>
           <ProgressBar />
@@ -28,7 +23,11 @@ export const Seats = () => {
         <CardSeats />
         <OrderSummary />
       </S.Grid>
-      <FooterMovie txtBtnForward="ESCOLHER INGRESSOS" />
-    </Bg>
+      <FooterMovie
+        isDisabledBtnBack={true}
+        txtBtnForward="ESCOLHER INGRESSOS"
+        isDisableBtnForward={moreThanOneTicketsChoosen}
+      />
+    </GS.Background>
   );
 };
