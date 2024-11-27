@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { Card } from "../../card";
 
 interface InterfaceBtn {
-  isDisabled?: boolean;
+  isDisabledBtnBack?: boolean;
+  isDisableBtnForward?: boolean;
+  bgForward?: string;
 }
 
 export const Fixed = styled(Card)`
@@ -11,26 +13,31 @@ export const Fixed = styled(Card)`
 
 export const BtnBack = styled.button<InterfaceBtn>`
   border: none;
-  cursor: ${({ isDisabled }) => !isDisabled && "pointer"};
+  cursor: ${({ isDisabledBtnBack }) => !isDisabledBtnBack && "pointer"};
   border-radius: 6px;
   width: 15rem;
   padding: 15px;
-  border: ${({ isDisabled }) => (isDisabled ? "none" : "1px solid #47DDFF")};
-  background-color: ${({ isDisabled }) =>
-    isDisabled ? "#BBBBBB" : "transparent"};
-  color: ${({ isDisabled }) => (isDisabled ? "#FFFF" : "#47DDFF")};
+  border: ${({ isDisabledBtnBack }) =>
+    isDisabledBtnBack ? "none" : "1px solid #47DDFF"};
+  background-color: ${({ isDisabledBtnBack }) =>
+    isDisabledBtnBack ? "#BBBBBB" : "transparent"};
+  color: ${({ isDisabledBtnBack }) =>
+    isDisabledBtnBack ? "#FFFF" : "#47DDFF"};
   font-family: "Saira";
   font-size: 1rem;
 `;
 
 export const BtnStraight = styled.button<InterfaceBtn>`
   border: none;
-  cursor: ${({ isDisabled }) => !isDisabled && "pointer"};
+  cursor: ${({ isDisableBtnForward }) => !isDisableBtnForward && "pointer"};
   border-radius: 6px;
   width: 15rem;
   padding: 15px;
-  background-color: ${({ isDisabled }) => (isDisabled ? "#666666" : "#D0FF00")};
-  color: ${({ isDisabled }) => (isDisabled ? "#21262" : "black")};
+  background-color: ${({ bgForward }) => (bgForward ? bgForward : "#D0FF00")};
+  background-color: ${({ isDisableBtnForward }) =>
+    isDisableBtnForward && "#666666"};
+  color: ${({ isDisableBtnForward }) =>
+    isDisableBtnForward ? "#21262" : "black"};
   font-family: "Saira";
   font-size: 1rem;
 `;
