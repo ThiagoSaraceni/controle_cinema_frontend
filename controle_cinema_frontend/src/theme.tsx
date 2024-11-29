@@ -4,5 +4,6 @@ export const theme = {
     primary: "#A259FF",
     warning: "#FFC700",
     danger: "#EA5455",
+    light: "#D0FF00",
   },
 };
