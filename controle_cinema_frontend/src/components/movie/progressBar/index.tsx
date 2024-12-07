@@ -7,7 +7,7 @@ import * as S from "./styles";
 
 export const ProgressBar = () => {
   //TODO: para me reentender depois, props passed e quando ja passei dessa fase, no caso estava em assentos e agora em bilheteria, entao passei da parte de assentos. active e o momento atual que estou
-  const index = 1;
+  const index = 0;
   return (
     <S.Center>
       <S.BarProgression>
