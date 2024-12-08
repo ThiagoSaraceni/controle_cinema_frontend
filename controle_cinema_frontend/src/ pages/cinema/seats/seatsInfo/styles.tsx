@@ -38,14 +38,40 @@ export const DFlex = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
+
+  p {
+    font-family: "Saira";
+    text-align: center;
+    font-weight: 400;
+  }
+`;
+
+export const DisplayFlexHeader = styled.div`
+  display: flex;
+  gap: 40px;
+
+  .space {
+    height: 18px;
+    width: 8px;
+  }
+
+  .sit {
+    p {
+      font-family: "Saira";
+      text-align: center;
+      font-weight: 700;
+    }
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const Avatar = styled.div`
   margin: 0.5rem 0rem;
   background-color: rgb(152, 170, 236);
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   justify-content: center;
   align-items: center;
   display: flex;
