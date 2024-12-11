@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { CardBody } from "../../cardBody";
 import * as S from "./styles";
+import { Card } from "../../card";
 
 interface InterfaceFooterMovie {
   txtBtnForward?: string;
@@ -19,21 +21,18 @@ export const FooterMovie = ({
   //botao adiante, se tiver algo selecionado o disabled dele e tirado na hora.
 
   // ver depois se da pra mudar o cursor no disabled
+
   return (
-    <>
-      <S.Fixed>
-        <CardBody>
-          <S.JustifyBetween>
-            <S.BtnBack isDisabledBtnBack={isDisabledBtnBack}>VOLTAR</S.BtnBack>
-            <S.BtnStraight
-              bgForward={bgForward}
-              isDisableBtnForward={isDisableBtnForward}
-            >
-              {txtBtnForward}
-            </S.BtnStraight>
-          </S.JustifyBetween>
-        </CardBody>
-      </S.Fixed>
-    </>
+    <S.Fixed>
+      <S.JustifyBetween>
+        <S.BtnBack isDisabledBtnBack={isDisabledBtnBack}>VOLTAR</S.BtnBack>
+        <S.BtnStraight
+          bgForward={bgForward}
+          isDisableBtnForward={isDisableBtnForward}
+        >
+          {txtBtnForward}
+        </S.BtnStraight>
+      </S.JustifyBetween>
+    </S.Fixed>
   );
 };

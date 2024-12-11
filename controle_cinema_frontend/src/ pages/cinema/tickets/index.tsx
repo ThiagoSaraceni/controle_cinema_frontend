@@ -10,18 +10,16 @@ import { BuyTickets } from "../../../components/movie/buyTickets";
 export const TicketsMovie = () => {
   return (
     <>
-      <GS.Background>
-        <Card>
-          <CardBody>
-            <ProgressBar />
-          </CardBody>
-        </Card>
-        <Styled.Grid>
-          <BuyTickets />
-          <OrderSummary />
-        </Styled.Grid>
-        <FooterMovie bgForward="#28C76F" txtBtnForward="FINALIZAR  COMPRA" />
-      </GS.Background>
+      <Card>
+        <CardBody>
+          <ProgressBar />
+        </CardBody>
+      </Card>
+      <Styled.Grid>
+        <BuyTickets />
+        <OrderSummary />
+      </Styled.Grid>
+      <FooterMovie bgForward="#28C76F" txtBtnForward="FINALIZAR  COMPRA" />
     </>
   );
 };

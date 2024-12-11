@@ -7,8 +7,15 @@ interface InterfaceBtn {
   bgForward?: string;
 }
 
-export const Fixed = styled(Card)`
+export const Fixed = styled.div`
   position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 1440px;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%) !important;
+  background-color: #21262d;
+  padding: 1rem;
 `;
 
 export const BtnBack = styled.button<InterfaceBtn>`

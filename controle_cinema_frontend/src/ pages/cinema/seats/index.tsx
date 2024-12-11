@@ -6,13 +6,12 @@ import { CardSeats } from "./seatsInfo";
 import { OrderSummary } from "../../../components/movie/orderSummary";
 import { ProgressBar } from "../../../components/movie/progressBar";
 import { FooterMovie } from "../../../components/movie/footer";
-import * as GS from "../styles";
 
 export const Seats = () => {
   const moreThanOneTicketsChoosen = true;
 
   return (
-    <GS.Background>
+    <>
       <Card>
         <CardBody>
           <ProgressBar />
@@ -28,6 +27,6 @@ export const Seats = () => {
         txtBtnForward="ESCOLHER INGRESSOS"
         isDisableBtnForward={moreThanOneTicketsChoosen}
       />
-    </GS.Background>
+    </>
   );
 };
