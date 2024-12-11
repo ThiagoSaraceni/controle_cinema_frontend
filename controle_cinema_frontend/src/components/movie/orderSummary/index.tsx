@@ -3,11 +3,15 @@ import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import * as S from "./styles";
 
-export const OrderSummary = () => {
+interface IPropsOrder {
+  ticket?: boolean;
+}
+
+export const OrderSummary = ({ ticket }: IPropsOrder) => {
   return (
     <Card>
       <CardBody>
-        <S.Order>
+        <S.Order ticket={ticket}>
           <h3>RESUMO DO PEDIDO</h3>
           <div className="flex">
             <img

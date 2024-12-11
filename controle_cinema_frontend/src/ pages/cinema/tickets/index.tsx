@@ -1,7 +1,6 @@
 import { Card } from "../../../components/card";
 import { CardBody } from "../../../components/cardBody";
 import { ProgressBar } from "../../../components/movie/progressBar";
-import * as GS from "../styles";
 import * as Styled from "../seats/styles";
 import { OrderSummary } from "../../../components/movie/orderSummary";
 import { FooterMovie } from "../../../components/movie/footer";
@@ -17,7 +16,7 @@ export const TicketsMovie = () => {
       </Card>
       <Styled.Grid>
         <BuyTickets />
-        <OrderSummary />
+        <OrderSummary ticket />
       </Styled.Grid>
       <FooterMovie bgForward="#28C76F" txtBtnForward="FINALIZAR  COMPRA" />
     </>
