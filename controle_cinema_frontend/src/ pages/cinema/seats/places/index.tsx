@@ -86,6 +86,7 @@ export const SeatPlaces = () => {
               </>
             );
           })}
+          <S.Screen>TELA</S.Screen>
         </div>
       </S.CenterContent>
     </>

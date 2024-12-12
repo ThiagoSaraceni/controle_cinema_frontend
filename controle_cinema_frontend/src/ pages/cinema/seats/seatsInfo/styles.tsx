@@ -81,3 +81,17 @@ export const CenterContent = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+export const Screen = styled.div`
+  margin: 1rem 0rem;
+  height: 23px;
+  background: #d9d9d9;
+  width: 100%;
+  border-top-right-radius: 17px;
+  border-top-left-radius: 17px;
+  font-family: "Saira";
+  text-align: center;
+  color: #000000a4;
+  font-weight: bold;
+  border-bottom: 3px solid rgb(240, 240, 240);
+`;
