@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+interface IAvatarProps {
+  bgColor?: string;
+}
+
+interface ICircleProps {
+  bg?: string;
+  color?: string;
+}
+
 export const H5 = styled.h5`
   font-weight: 600;
   font-family: "Saira";
@@ -25,7 +34,8 @@ export const Legend = styled.ul`
   }
 `;
 
-export const Circle = styled.div`
+export const Circle = styled.div<ICircleProps>`
+  background-color: ${({ bg }: any) => bg};
   background-color: ${({ theme, color }: any) => theme.colors[color]};
   border-radius: 50%;
   width: 1.8rem;
@@ -37,6 +47,7 @@ export const Circle = styled.div`
 export const DFlex = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 40px;
 
   p {
@@ -66,15 +77,21 @@ export const DisplayFlexHeader = styled.div`
   }
 `;
 
-export const Avatar = styled.div`
+export const Avatar = styled.div<IAvatarProps>`
   margin: 0.5rem 0rem;
-  background-color: rgb(152, 170, 236);
+  background-color: ${({ bgColor }) => bgColor ?? "rgb(152, 170, 236)"};
   border-radius: 50%;
   width: 30px;
   height: 30px;
   justify-content: center;
   align-items: center;
   display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000000;
+  font-weight: bold;
+  font-family: "Saira";
+  cursor: pointer;
 `;
 
 export const CenterContent = styled.div`
