@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface IAvatarProps {
   bgColor?: string;
+  disabled?: boolean;
 }
 
 interface ICircleProps {
@@ -91,7 +92,7 @@ export const Avatar = styled.div<IAvatarProps>`
   color: #000000;
   font-weight: bold;
   font-family: "Saira";
-  cursor: pointer;
+  cursor: ${({ disabled }) => !disabled && "pointer"};
 `;
 
 export const CenterContent = styled.div`

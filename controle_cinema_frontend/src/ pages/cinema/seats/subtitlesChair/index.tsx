@@ -25,11 +25,6 @@ const SUBTITLES: SubtitleInterface[] = [
 export const SubtitlesChair = () => {
   return (
     <>
-      <S.Avatar bgColor="#D0FF00">h4</S.Avatar>
-      <S.Avatar bgColor="#EA5455">
-        <UserBlockSvg />
-      </S.Avatar>
-
       <S.H5>LEGENDA</S.H5>
       <S.Legend>
         {SUBTITLES.map((item) => (

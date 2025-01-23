@@ -8,7 +8,7 @@ import { ProgressBar } from "../../../components/movie/progressBar";
 import { FooterMovie } from "../../../components/movie/footer";
 
 export const Seats = () => {
-  const moreThanOneTicketsChoosen = true;
+  const lessThanOneTicketsChoosen = true;
 
   return (
     <>
@@ -25,7 +25,7 @@ export const Seats = () => {
       <FooterMovie
         isDisabledBtnBack={true}
         txtBtnForward="ESCOLHER INGRESSOS"
-        isDisableBtnForward={moreThanOneTicketsChoosen}
+        isDisableBtnForward={lessThanOneTicketsChoosen}
       />
     </>
   );
