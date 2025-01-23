@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Order = styled.div`
+interface IOrder {
+  ticket?: boolean;
+}
+
+export const Order = styled.div<IOrder>`
   h3 {
     font-family: "Saira", serif;
     font-optical-sizing: auto;
@@ -38,4 +42,7 @@ export const Order = styled.div`
     font-family: "Saira";
     font-size: 18px;
   }
+
+  min-height: ${({ ticket }) =>
+    ticket ? "calc(-402px + 100vh)" : "calc(-570px + 100vh)"};
 `;
