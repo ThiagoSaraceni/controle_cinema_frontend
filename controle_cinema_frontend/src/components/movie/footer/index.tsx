@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import { CardBody } from "../../cardBody";
 import * as S from "./styles";
-import { Card } from "../../card";
 
 interface InterfaceFooterMovie {
   txtBtnForward?: string;
@@ -9,6 +6,8 @@ interface InterfaceFooterMovie {
   bgForward?: string;
   isDisabledBtnBack?: boolean;
   isDisableBtnForward?: boolean;
+  clickBtnForward?: () => void;
+  clickBtnBack?: () => void;
 }
 
 export const FooterMovie = ({
@@ -17,6 +16,8 @@ export const FooterMovie = ({
   bgForward,
   isDisabledBtnBack,
   isDisableBtnForward,
+  clickBtnForward,
+  clickBtnBack,
 }: InterfaceFooterMovie) => {
   //botao adiante, se tiver algo selecionado o disabled dele e tirado na hora.
 
@@ -25,8 +26,11 @@ export const FooterMovie = ({
   return (
     <S.Fixed>
       <S.JustifyBetween>
-        <S.BtnBack isDisabledBtnBack={isDisabledBtnBack}>VOLTAR</S.BtnBack>
+        <S.BtnBack isDisabledBtnBack={isDisabledBtnBack} onClick={clickBtnBack}>
+          VOLTAR
+        </S.BtnBack>
         <S.BtnStraight
+          onClick={clickBtnForward}
           bgForward={bgForward}
           isDisableBtnForward={isDisableBtnForward}
         >

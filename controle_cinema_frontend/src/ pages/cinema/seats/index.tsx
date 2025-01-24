@@ -8,11 +8,19 @@ import { ProgressBar } from "../../../components/movie/progressBar";
 import { FooterMovie } from "../../../components/movie/footer";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux";
+import { useNavigate } from "react-router-dom";
 
 export const Seats = () => {
+  const navigate = useNavigate();
   const { seatsMarked } = useSelector((state: RootState) => state.movie);
 
-  const lessThanOneTicketsChoosen = seatsMarked?.length > 0;
+  const isTicketsChosed = seatsMarked?.length > 0;
+
+  const goFinishedBuy = () => {
+    if (isTicketsChosed) {
+      return navigate(`/tickets`);
+    }
+  };
 
   return (
     <>
@@ -29,7 +37,8 @@ export const Seats = () => {
       <FooterMovie
         isDisabledBtnBack={true}
         txtBtnForward="ESCOLHER INGRESSOS"
-        isDisableBtnForward={!lessThanOneTicketsChoosen}
+        isDisableBtnForward={!isTicketsChosed}
+        clickBtnForward={goFinishedBuy}
       />
     </>
   );
