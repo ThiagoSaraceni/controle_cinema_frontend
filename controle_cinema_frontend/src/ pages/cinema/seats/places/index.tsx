@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import { ChairIcon } from "../../../../assets/svg/cinema/chair-icon";
 import { UserBlockSvg } from "../../../../assets/svg/cinema/user-icon";
 import * as S from "../seatsInfo/styles";
@@ -55,6 +55,7 @@ export const SeatPlaces = () => {
       // o fileiras.indexOf(seat.row) serve para eu pegar o indice da minha letra se for 'b' no caso vai ser indice 1 e eu coloco o menos 1 no final pq o array começa em 0, nisso eu pego meu seatMatrix que é 8 - 2 que é do indice b e o -1 do  final sobra linha 6, que invertida seria a coluna b.
       //se fosse linha h, seria indice 7 do array, menos 1 fica 8, menos 8 de tamanho do seat matrix, se for subtrair da indice zero, no caso a linha h, ultima linha!
       const rowIndex = seatMatrix.length - fileiras.indexOf(seat.row) - 1; // Índice invertido
+      //coluna éa mesma coisa, indice da coluna menos 1, pq o array começa em 0.
       const colIndex = seat.column - 1;
 
       seatMatrix[rowIndex][colIndex] = seat.status;
@@ -65,19 +66,23 @@ export const SeatPlaces = () => {
 
   const [seats, setSeats] = useState<SeatStatus[][]>(inicializarAssentos);
 
-  const toggleSeat = useCallback(
-    (row: number, col: number) => {
-      if (seats[row][col] === 2) return;
+  const toggleSeat = (row: number, col: number) => {
+    if (seats[row][col] === 2) return; // Assento reservado não pode ser alterado.
 
-      setSeats((prevSeats) => {
-        const newSeats = [...prevSeats];
-        newSeats[row] = [...prevSeats[row]];
-        newSeats[row][col] = prevSeats[row][col] === 0 ? 1 : 0;
-        return newSeats;
+    //se a linha do meu parametro existe no meu prevstate ele irá acessar esse array e verificar o valor da coluna se altera ou nao.
+    setSeats((prevSeats) => {
+      const newSeats = prevSeats.map((rowSeats, rowIndex) => {
+        if (rowIndex === row) {
+          return rowSeats.map((seat, colIndex) =>
+            colIndex === col ? (seat === 0 ? 1 : 0) : seat
+          );
+        }
+        return rowSeats;
       });
-    },
-    [seats]
-  );
+
+      return newSeats;
+    });
+  };
 
   if (seats.length === 0) {
     return <p>Carregando assentos...</p>;
