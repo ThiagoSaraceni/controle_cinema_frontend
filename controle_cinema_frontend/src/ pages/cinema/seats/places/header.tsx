@@ -6,7 +6,6 @@ type HeaderSeatsProps = {
 };
 
 export const HeaderSeats = ({ seats }: HeaderSeatsProps) => {
-  console.log({ seats });
   return (
     <S.DisplayFlexHeader>
       <div className="space" />

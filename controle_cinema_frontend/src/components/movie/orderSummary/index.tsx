@@ -1,13 +1,18 @@
+import { useSelector } from "react-redux";
 import { Badge } from "../../badge";
 import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import * as S from "./styles";
+import { RootState } from "../../../redux";
 
 interface IPropsOrder {
   ticket?: boolean;
 }
 
 export const OrderSummary = ({ ticket }: IPropsOrder) => {
+  const { seatsMarked } = useSelector((state: RootState) => state.movie);
+  console.log(seatsMarked);
+
   return (
     <Card>
       <CardBody>
@@ -29,7 +34,16 @@ export const OrderSummary = ({ ticket }: IPropsOrder) => {
             </div>
           </div>
           <hr />
-          <span>ASSENTOS: </span>
+          <span>
+            ASSENTOS:
+            {seatsMarked.map((item, key) => (
+              <span key={key}>
+                &nbsp; {item?.fileira}
+                {item?.coluna}
+                {key !== seatsMarked.length - 1 && ","}
+              </span>
+            ))}
+          </span>
         </S.Order>
       </CardBody>
     </Card>
