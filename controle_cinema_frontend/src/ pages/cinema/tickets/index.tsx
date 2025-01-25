@@ -24,7 +24,7 @@ export const TicketsMovie = () => {
       </Styled.Grid>
       <FooterMovie
         bgForward="#28C76F"
-        clickBtnBack={() => navigate(`/seats`)}
+        clickBtnBack={() => navigate(-1)}
         txtBtnForward="FINALIZAR  COMPRA"
       />
     </>
