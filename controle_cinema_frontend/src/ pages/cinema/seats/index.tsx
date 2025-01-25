@@ -12,7 +12,9 @@ import { useNavigate } from "react-router-dom";
 
 export const Seats = () => {
   const navigate = useNavigate();
-  const { seatsMarked } = useSelector((state: RootState) => state.movie);
+  const { seatsMarked, movieInfo } = useSelector(
+    (state: RootState) => state.movie
+  );
 
   const isTicketsChosed = seatsMarked?.length > 0;
 
@@ -21,6 +23,8 @@ export const Seats = () => {
       return navigate(`/tickets`);
     }
   };
+
+  console.log(movieInfo);
 
   return (
     <>
@@ -32,7 +36,7 @@ export const Seats = () => {
       <InfoMovie />
       <S.Grid>
         <CardSeats />
-        <OrderSummary />
+        <OrderSummary orderInfo={movieInfo} />
       </S.Grid>
       <FooterMovie
         isDisabledBtnBack={true}

@@ -5,12 +5,23 @@ export interface Seat {
   coluna: number;
 }
 
+export interface Movie {
+  movieName: string;
+  description: string;
+  categoria: string;
+  gender: string[];
+  time: number;
+  img_url: string;
+}
+
 interface MovieState {
   seatsMarked: Seat[];
+  movieInfo: Movie | null;
 }
 
 const initialState: MovieState = {
   seatsMarked: [],
+  movieInfo: null,
 };
 
 export const movieSlice = createSlice({
@@ -20,9 +31,12 @@ export const movieSlice = createSlice({
     addSeats: (state, action: PayloadAction<Seat[]>) => {
       state.seatsMarked = action.payload; // Acessando corretamente o payload
     },
+    addMovieInfo: (state, action: PayloadAction<Movie>) => {
+      state.movieInfo = action.payload;
+    },
   },
 });
 
-export const { addSeats } = movieSlice.actions;
+export const { addSeats, addMovieInfo } = movieSlice.actions;
 
 export default movieSlice.reducer;

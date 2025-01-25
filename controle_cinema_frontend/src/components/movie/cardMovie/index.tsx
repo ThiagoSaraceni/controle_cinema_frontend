@@ -3,8 +3,10 @@ import { Badge } from "../../badge";
 import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import * as S from "./style";
+import { useDispatch } from "react-redux";
+import { addMovieInfo } from "../../../redux/movieSlice";
 
-interface RoomMovie {
+export interface MovieRoom {
   data: {
     id: number;
     movie: {
@@ -22,10 +24,15 @@ interface RoomMovie {
   };
 }
 
-export const MoviesCard = ({ data }: RoomMovie) => {
-  console.log(data);
-
+export const MoviesCard = ({ data }: MovieRoom) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const goSeatPage = (id: number) => {
+    navigate(`/seats/${id}`);
+    dispatch(addMovieInfo(data?.movie));
+  };
+
   return (
     <Card>
       <S.ImgBgCard>
@@ -51,7 +58,7 @@ export const MoviesCard = ({ data }: RoomMovie) => {
                 <label className="text-blue">DUBLADO</label>
                 <S.DFlexGap>
                   {data?.dateTimeDubbed?.map((item) => (
-                    <time onClick={() => navigate(`/seats/${data?.room_id}`)}>
+                    <time onClick={() => goSeatPage(data?.room_id)}>
                       {item}
                     </time>
                   ))}
@@ -62,7 +69,7 @@ export const MoviesCard = ({ data }: RoomMovie) => {
                 <label className="text-blue">LEGENDADO</label>
                 <S.DFlexGap>
                   {data?.dateTimeSubtitled?.map((item) => (
-                    <time onClick={() => navigate(`/seats/${data?.room_id}`)}>
+                    <time onClick={() => goSeatPage(data?.room_id)}>
                       {item}
                     </time>
                   ))}
