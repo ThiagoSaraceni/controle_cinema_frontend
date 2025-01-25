@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface IAvatarProps {
   bgColor?: string;
   disabled?: boolean;
+  clicked?: boolean;
 }
 
 interface ICircleProps {
@@ -93,6 +94,8 @@ export const Avatar = styled.div<IAvatarProps>`
   font-weight: bold;
   font-family: "Saira";
   cursor: ${({ disabled }) => !disabled && "pointer"};
+  transition: ${({ clicked }) => clicked && "200ms"};
+  transform: ${({ clicked }) => clicked && "scale(1.5) !important"};
 `;
 
 export const CenterContent = styled.div`

@@ -10,6 +10,7 @@ import { FILEIRAS } from "../../../../constants/movieSeats";
 export type SeatStatus = 0 | 1 | 2; // 0: Disponível, 1: Selecionado, 2: Reservado
 
 export const SeatPlaces = () => {
+  const [clicked, setClicked] = useState(false);
   const mockApiResponse = {
     seats: [
       { row: "b", column: 1, status: 2 }, // Reservado
@@ -40,25 +41,10 @@ export const SeatPlaces = () => {
 
   const [seats, setSeats] = useState<SeatStatus[][]>(inicializarAssentos);
 
-  // const toggleSeat = (row: number, col: number) => {
-  //   if (seats[row][col] === 2) return; // Assento reservado não pode ser alterado.
-
-  //   //se a linha do meu parametro existe no meu prevstate ele irá acessar esse array e verificar o valor da coluna se altera ou nao.
-  //   setSeats((prevSeats) => {
-  //     const newSeats = prevSeats.map((rowSeats, rowIndex) => {
-  //       if (rowIndex === row) {
-  //         return rowSeats.map((seat, colIndex) =>
-  //           colIndex === col ? (seat === 0 ? 1 : 0) : seat
-  //         );
-  //       }
-  //       return rowSeats;
-  //     });
-
-  //     return newSeats;
-  //   });
-  // };
-
   const toggleSeat = (row: number, col: number) => {
+    setClicked(true);
+    setTimeout(() => setClicked(false), 200); // Duração da animação
+
     if (seats[row][col] === 2) return; // Assento reservado não pode ser alterado.
 
     setSeats((prevSeats) => {
@@ -72,20 +58,6 @@ export const SeatPlaces = () => {
       return newSeats;
     });
   };
-
-  // const seatsMarked: Seat[] = [];
-
-  // // Acumula todos os assentos selecionados
-  // seats.forEach((array, rowIndex) => {
-  //   array.forEach((valueArray, colIndex) => {
-  //     if (valueArray === 1) {
-  //       seatsMarked.push({
-  //         fileira: FILEIRAS[seats.length - (rowIndex + 1)],
-  //         coluna: colIndex + 1,
-  //       });
-  //     }
-  //   });
-  // });
 
   const seatsMarked = useMemo(() => {
     const marked: Seat[] = [];
@@ -132,6 +104,7 @@ export const SeatPlaces = () => {
                       </S.Avatar>
                     ) : valueArray === 1 ? (
                       <S.Avatar
+                        clicked={clicked}
                         bgColor="#D0FF00"
                         onClick={() => toggleSeat(rowIndex, colIndex)}
                       >

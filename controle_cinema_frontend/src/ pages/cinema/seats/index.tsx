@@ -26,7 +26,7 @@ export const Seats = () => {
     <>
       <Card>
         <CardBody>
-          <ProgressBar />
+          <ProgressBar index={0} />
         </CardBody>
       </Card>
       <InfoMovie />

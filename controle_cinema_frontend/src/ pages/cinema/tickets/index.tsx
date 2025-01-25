@@ -15,7 +15,7 @@ export const TicketsMovie = () => {
     <>
       <Card>
         <CardBody>
-          <ProgressBar />
+          <ProgressBar index={1} />
         </CardBody>
       </Card>
       <Styled.Grid>
