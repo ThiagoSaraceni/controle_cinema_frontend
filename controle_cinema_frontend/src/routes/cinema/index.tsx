@@ -11,7 +11,7 @@ export const CinemaRoutes = () => {
         <MStyle.Content>
           <Routes>
             <Route path="/" element={<HomeCinema />} />
-            <Route path="/seats" element={<Seats />} />
+            <Route path="/seats/:id" element={<Seats />} />
             <Route path="/tickets" element={<TicketsMovie />} />
           </Routes>
         </MStyle.Content>

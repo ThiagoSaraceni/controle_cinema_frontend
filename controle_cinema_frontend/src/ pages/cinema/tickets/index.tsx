@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 export const TicketsMovie = () => {
   const navigate = useNavigate();
 
+  // TODO: colocar aviso na tela se n tem items no meu useSelector mostrar que precisa escolher um filme e os assentos
   return (
     <>
       <Card>

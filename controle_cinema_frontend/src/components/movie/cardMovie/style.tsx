@@ -10,6 +10,12 @@ export const CardImg = styled.div`
     aspect-ratio: 2 / 3;
     max-height: 350px;
     border-radius: 4px;
+
+    transition: transform 0.2s ease !important;
+
+    &:hover {
+      transform: scale(1.1) !important;
+    }
   }
 
   .movie {
@@ -86,4 +92,10 @@ export const CardImg = styled.div`
 export const ImgBgCard = styled.div`
   background-image: url("card-image.png");
   background-size: cover;
+`;
+
+export const DFlexGap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
 `;
