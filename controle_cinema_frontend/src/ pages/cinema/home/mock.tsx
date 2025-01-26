@@ -13,7 +13,6 @@ export const mock = [
     },
     dateTimeDubbed: ["19:49", "21:00"],
     dateTimeSubtitled: ["15:20", "18:00"],
-
     status: "ok",
     room_id: 3,
   },

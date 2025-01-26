@@ -2,9 +2,10 @@ import { useSelector } from "react-redux";
 import { Badge } from "../../badge";
 import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
-import * as S from "./styles";
 import { RootState } from "../../../redux";
 import { Movie } from "../../../redux/movieSlice";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import * as S from "./styles";
 
 interface IPropsOrder {
   ticket?: boolean;
@@ -12,17 +13,23 @@ interface IPropsOrder {
 }
 
 export const OrderSummary = ({ ticket, orderInfo }: IPropsOrder) => {
-  const { seatsMarked } = useSelector((state: RootState) => state.movie);
+  const { seatsMarked, movieInfo } = useSelector(
+    (state: RootState) => state.movie
+  );
 
+  // TODO: colocar cor para os badges de classificacao filme
   return (
     <Card>
       <CardBody>
         <S.Order ticket={ticket}>
-          <h3>RESUMO DO PEDIDO</h3>
+          <S.FlexBetween>
+            <h3>RESUMO DO PEDIDO</h3>
+            <S.TrashIcon icon={faTrashCan} />
+          </S.FlexBetween>
           <div className="flex">
-            <img src={orderInfo?.img_url} alt="logo-filme" />
+            <img src={movieInfo?.img_url} alt="logo-filme" />
             <div>
-              <label>{orderInfo?.movieName}</label>
+              <label>{movieInfo?.movieName}</label>
               <div className="flex">
                 <Badge thin bgColor={`#F24E1E`}>
                   +16
