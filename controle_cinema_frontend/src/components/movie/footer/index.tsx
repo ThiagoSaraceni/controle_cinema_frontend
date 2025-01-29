@@ -30,6 +30,7 @@ export const FooterMovie = ({
           VOLTAR
         </S.BtnBack>
         <S.BtnStraight
+          disabled={isDisableBtnForward}
           onClick={clickBtnForward}
           bgForward={bgForward}
           isDisableBtnForward={isDisableBtnForward}
