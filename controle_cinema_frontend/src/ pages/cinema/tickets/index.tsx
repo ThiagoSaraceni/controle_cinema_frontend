@@ -15,6 +15,12 @@ export const TicketsMovie = () => {
   const { finishPurchase } = useSelector((state: RootState) => state.movie);
 
   console.log(finishPurchase);
+
+  const handleEndBuy = () => {
+    //exemplo enviando ao banco o finish purchase
+    console.log("compra finalizada", finishPurchase);
+    navigate(`/end-purchase`);
+  };
   // TODO: colocar aviso na tela se n tem items no meu useSelector mostrar que precisa escolher um filme e os assentos
   return (
     <>
@@ -30,7 +36,7 @@ export const TicketsMovie = () => {
       <FooterMovie
         bgForward="#28C76F"
         clickBtnBack={() => navigate(-1)}
-        clickBtnForward={() => console.log("compra finalizada", finishPurchase)}
+        clickBtnForward={handleEndBuy}
         txtBtnForward="FINALIZAR  COMPRA"
         isDisableBtnForward={!finishPurchase?.endBuy}
       />
