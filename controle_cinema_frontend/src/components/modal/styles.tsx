@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const ContainerModal = styled.div`
+interface InterfaceModal {
+  isOpen: boolean;
+}
+
+export const ContainerModal = styled.div<InterfaceModal>`
   background-color: #23262d;
   position: fixed;
   top: 50%;
@@ -22,6 +26,7 @@ export const ContainerModal = styled.div`
 
   .description {
     font-family: "Saira";
+    font-size: 14px;
   }
 
   .space-between {
@@ -34,8 +39,6 @@ export const ContainerModal = styled.div`
   .btnBack {
     padding: 6px 20px;
     color: white;
-    /* background: linear-gradient(#23262d, #23262d) padding-box,
-      linear-gradient(to right, darkblue, darkorchid) border-box; */
     background: linear-gradient(#23262d, #23262d) padding-box,
       linear-gradient(to right, #3535da, #c791e2) border-box;
     border: 4px solid transparent;
@@ -61,8 +64,8 @@ export const ContainerModal = styled.div`
   }
 `;
 
-export const BackgroundModal = styled.div`
-  background-color: rgb(8, 20, 28, 80%);
+export const BackgroundModal = styled.div<InterfaceModal>`
+  background-color: rgba(8, 20, 28, 0.8);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -76,5 +79,3 @@ export const ContainerIcon = styled.div`
   display: flex;
   justify-content: center;
 `;
-
-export const BodyContainer = styled.div``;

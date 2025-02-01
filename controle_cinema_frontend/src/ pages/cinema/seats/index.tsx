@@ -6,14 +6,16 @@ import { CardSeats } from "./seatsInfo";
 import { OrderSummary } from "../../../components/movie/orderSummary";
 import { ProgressBar } from "../../../components/movie/progressBar";
 import { FooterMovie } from "../../../components/movie/footer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux";
 import { useNavigate } from "react-router-dom";
 import { ModalAlert } from "../../../components/modal";
+import { handleOpenModal } from "../../../redux/movieSlice";
 
 export const Seats = () => {
   const navigate = useNavigate();
-  const { seatsMarked } = useSelector((state: RootState) => state.movie);
+  const { seatsMarked, modal } = useSelector((state: RootState) => state.movie);
+  const dispatch = useDispatch();
 
   const isTicketsChosed = seatsMarked?.length > 0;
 
@@ -23,7 +25,13 @@ export const Seats = () => {
     }
   };
 
-  // TODO: CRIAR MODAL AQUI
+  const handleOpeningModal = () => dispatch(handleOpenModal(!modal));
+
+  const cancelBuy = () => {
+    navigate(`/`);
+    dispatch(handleOpenModal(false));
+  };
+
   return (
     <>
       <Card>
@@ -42,7 +50,12 @@ export const Seats = () => {
         isDisableBtnForward={!isTicketsChosed}
         clickBtnForward={goFinishedBuy}
       />
-      <ModalAlert />
+      <ModalAlert
+        clickBtnCancel={handleOpeningModal}
+        clickBtnConfirm={cancelBuy}
+        isOpen={modal}
+        description="Deseja mesmo excluir essa sessão do seu carrinho?"
+      />
     </>
   );
 };

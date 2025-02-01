@@ -6,13 +6,17 @@ import { OrderSummary } from "../../../components/movie/orderSummary";
 import { FooterMovie } from "../../../components/movie/footer";
 import { BuyTickets } from "../../../components/movie/buyTickets";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux";
+import { ModalAlert } from "../../../components/modal";
+import { handleOpenModal } from "../../../redux/movieSlice";
 
 export const TicketsMovie = () => {
   const navigate = useNavigate();
 
-  const { finishPurchase } = useSelector((state: RootState) => state.movie);
+  const { finishPurchase, modal } = useSelector(
+    (state: RootState) => state.movie
+  );
 
   console.log(finishPurchase);
 
@@ -20,6 +24,14 @@ export const TicketsMovie = () => {
     //exemplo enviando ao banco o finish purchase
     console.log("compra finalizada", finishPurchase);
     navigate(`/end-purchase`);
+  };
+
+  const dispatch = useDispatch();
+  const handleOpeningModal = () => dispatch(handleOpenModal(!modal));
+
+  const cancelBuy = () => {
+    navigate(`/`);
+    dispatch(handleOpenModal(false));
   };
   // TODO: colocar aviso na tela se n tem items no meu useSelector mostrar que precisa escolher um filme e os assentos
   return (
@@ -39,6 +51,12 @@ export const TicketsMovie = () => {
         clickBtnForward={handleEndBuy}
         txtBtnForward="FINALIZAR  COMPRA"
         isDisableBtnForward={!finishPurchase?.endBuy}
+      />
+      <ModalAlert
+        clickBtnCancel={handleOpeningModal}
+        clickBtnConfirm={cancelBuy}
+        isOpen={modal}
+        description="Deseja mesmo excluir essa sessão do seu carrinho?"
       />
     </>
   );

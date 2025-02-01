@@ -28,12 +28,14 @@ interface MovieState {
   seatsMarked: Seat[];
   movieInfo: Movie | null;
   finishPurchase: FinishPurchase | null;
+  modal: boolean;
 }
 
 const initialState: MovieState = {
   seatsMarked: [],
   movieInfo: null,
   finishPurchase: null,
+  modal: false,
 };
 
 export const movieSlice = createSlice({
@@ -56,9 +58,13 @@ export const movieSlice = createSlice({
       state.finishPurchase.endBuy = action.payload.endBuy;
       state.finishPurchase.tickets = action.payload.tickets;
     },
+    handleOpenModal: (state, action: PayloadAction<boolean>) => {
+      state.modal = action.payload;
+    },
   },
 });
 
-export const { addSeats, addMovieInfo, finishPurchase } = movieSlice.actions;
+export const { addSeats, addMovieInfo, finishPurchase, handleOpenModal } =
+  movieSlice.actions;
 
 export default movieSlice.reducer;

@@ -1,19 +1,23 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Badge } from "../../badge";
 import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import { RootState } from "../../../redux";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./styles";
+import { handleOpenModal } from "../../../redux/movieSlice";
 
 interface IPropsOrder {
   ticket?: boolean;
 }
 
 export const OrderSummary = ({ ticket }: IPropsOrder) => {
-  const { seatsMarked, movieInfo } = useSelector(
+  const dispatch = useDispatch();
+  const { seatsMarked, movieInfo, modal } = useSelector(
     (state: RootState) => state.movie
   );
+
+  const handleOpeningModal = () => dispatch(handleOpenModal(!modal));
 
   // TODO: colocar cor para os badges de classificacao filme
   return (
@@ -22,7 +26,7 @@ export const OrderSummary = ({ ticket }: IPropsOrder) => {
         <S.Order ticket={ticket}>
           <S.FlexBetween>
             <h3>RESUMO DO PEDIDO</h3>
-            <S.TrashIcon icon={faTrashCan} />
+            <S.TrashIcon onClick={handleOpeningModal} icon={faTrashCan} />
           </S.FlexBetween>
           <div className="flex">
             <img src={movieInfo?.img_url} alt="logo-filme" />
