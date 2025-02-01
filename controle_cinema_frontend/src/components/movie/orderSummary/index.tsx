@@ -3,16 +3,14 @@ import { Badge } from "../../badge";
 import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import { RootState } from "../../../redux";
-import { Movie } from "../../../redux/movieSlice";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./styles";
 
 interface IPropsOrder {
   ticket?: boolean;
-  orderInfo?: Movie | null;
 }
 
-export const OrderSummary = ({ ticket, orderInfo }: IPropsOrder) => {
+export const OrderSummary = ({ ticket }: IPropsOrder) => {
   const { seatsMarked, movieInfo } = useSelector(
     (state: RootState) => state.movie
   );

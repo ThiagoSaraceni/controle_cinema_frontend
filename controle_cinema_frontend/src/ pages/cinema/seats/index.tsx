@@ -9,12 +9,11 @@ import { FooterMovie } from "../../../components/movie/footer";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux";
 import { useNavigate } from "react-router-dom";
+import { ModalAlert } from "../../../components/modal";
 
 export const Seats = () => {
   const navigate = useNavigate();
-  const { seatsMarked, movieInfo } = useSelector(
-    (state: RootState) => state.movie
-  );
+  const { seatsMarked } = useSelector((state: RootState) => state.movie);
 
   const isTicketsChosed = seatsMarked?.length > 0;
 
@@ -24,8 +23,7 @@ export const Seats = () => {
     }
   };
 
-  console.log(movieInfo);
-
+  // TODO: CRIAR MODAL AQUI
   return (
     <>
       <Card>
@@ -36,7 +34,7 @@ export const Seats = () => {
       <InfoMovie />
       <S.Grid>
         <CardSeats />
-        <OrderSummary orderInfo={movieInfo} />
+        <OrderSummary />
       </S.Grid>
       <FooterMovie
         isDisabledBtnBack={true}
@@ -44,6 +42,7 @@ export const Seats = () => {
         isDisableBtnForward={!isTicketsChosed}
         clickBtnForward={goFinishedBuy}
       />
+      <ModalAlert />
     </>
   );
 };

@@ -6,8 +6,6 @@ import checkAnimation from "../../../components/animations/checkright.json";
 import * as S from "../styles";
 
 export const EndPurchase = () => {
-  // TODO: colocar  um lottie
-
   const defaultOptions = {
     loop: false,
     autoplay: true,
@@ -17,7 +15,6 @@ export const EndPurchase = () => {
     },
   };
 
-  //depois remover styledInlines
   return (
     <>
       <Card>
