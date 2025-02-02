@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
 interface IOrder {
@@ -45,4 +46,20 @@ export const Order = styled.div<IOrder>`
 
   min-height: ${({ ticket }) =>
     ticket ? "calc(-402px + 100vh)" : "calc(-570px + 100vh)"};
+`;
+
+export const FlexBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const TrashIcon = styled(FontAwesomeIcon)`
+  font-size: 20px;
+  margin-bottom: 12px;
+  &:hover {
+    color: #ea5455;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
 `;

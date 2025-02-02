@@ -1,25 +1,37 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Badge } from "../../badge";
 import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
+import { RootState } from "../../../redux";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./styles";
+import { handleOpenModal } from "../../../redux/movieSlice";
 
 interface IPropsOrder {
   ticket?: boolean;
 }
 
 export const OrderSummary = ({ ticket }: IPropsOrder) => {
+  const dispatch = useDispatch();
+  const { seatsMarked, movieInfo, modal } = useSelector(
+    (state: RootState) => state.movie
+  );
+
+  const handleOpeningModal = () => dispatch(handleOpenModal(!modal));
+
+  // TODO: colocar cor para os badges de classificacao filme
   return (
     <Card>
       <CardBody>
         <S.Order ticket={ticket}>
-          <h3>RESUMO DO PEDIDO</h3>
+          <S.FlexBetween>
+            <h3>RESUMO DO PEDIDO</h3>
+            <S.TrashIcon onClick={handleOpeningModal} icon={faTrashCan} />
+          </S.FlexBetween>
           <div className="flex">
-            <img
-              src="https://i0.wp.com/geekpopnews.com.br/wp-content/uploads/2024/07/beetlejuice-2-thumbnail.jpg?resize=1201%2C640&ssl=1"
-              alt="logo-filme"
-            />
+            <img src={movieInfo?.img_url} alt="logo-filme" />
             <div>
-              <label>Coringa - Delírio a Dois</label>
+              <label>{movieInfo?.movieName}</label>
               <div className="flex">
                 <Badge thin bgColor={`#F24E1E`}>
                   +16
@@ -29,7 +41,16 @@ export const OrderSummary = ({ ticket }: IPropsOrder) => {
             </div>
           </div>
           <hr />
-          <span>ASSENTOS: </span>
+          <span>
+            ASSENTOS:
+            {seatsMarked.map((item, key) => (
+              <span key={key}>
+                &nbsp; {item?.fileira}
+                {item?.coluna}
+                {key !== seatsMarked.length - 1 && ","}
+              </span>
+            ))}
+          </span>
         </S.Order>
       </CardBody>
     </Card>

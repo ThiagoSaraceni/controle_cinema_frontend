@@ -3,6 +3,7 @@ import { HomeCinema } from "../../ pages/cinema/home";
 import { Seats } from "../../ pages/cinema/seats";
 import { TicketsMovie } from "../../ pages/cinema/tickets";
 import * as MStyle from "../../ pages/cinema/styles";
+import { EndPurchase } from "../../ pages/cinema/endPurchase";
 
 export const CinemaRoutes = () => {
   return (
@@ -11,8 +12,9 @@ export const CinemaRoutes = () => {
         <MStyle.Content>
           <Routes>
             <Route path="/" element={<HomeCinema />} />
-            <Route path="/seats" element={<Seats />} />
+            <Route path="/seats/:id" element={<Seats />} />
             <Route path="/tickets" element={<TicketsMovie />} />
+            <Route path="/end-purchase" element={<EndPurchase />} />
           </Routes>
         </MStyle.Content>
       </MStyle.Background>

@@ -1,45 +1,79 @@
+import { useNavigate } from "react-router-dom";
 import { Badge } from "../../badge";
 import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import * as S from "./style";
+import { useDispatch } from "react-redux";
+import { addMovieInfo } from "../../../redux/movieSlice";
 
-const movieData = {
-  filmeName: "Beetlejuice: Os Fantasmas Se Divertem",
-  description:
-    "Depois de morrerem em um acidente de carro, Bárbara e Adam Maitland se encontram presos, assombrando sua antiga casa. Quando uma nova família e sua filha adolescente, Lydia, mudam para a residência, o casal de fantasmas tenta, sem sucesso, assustar os novos moradores. Suas tentativas de assombração atraem um espírito espalhafatoso, cuja ajuda se torna perigosa tanto para o par de almas, quanto para a inocente Lydia.",
-  categoria: "12",
-  genero: ["Terror", "Comédia"],
-  tempo: "134",
-  img_url:
-    "https://i0.wp.com/geekpopnews.com.br/wp-content/uploads/2024/07/beetlejuice-2-thumbnail.jpg?resize=1201%2C640&ssl=1",
-};
+export interface MovieRoom {
+  data: {
+    id: number;
+    movie: {
+      movieName: string;
+      description: string;
+      categoria: string;
+      gender: string[];
+      time: number;
+      img_url: string;
+    };
+    dateTimeDubbed: string[];
+    dateTimeSubtitled: string[];
+    status: string;
+    room_id: number;
+  };
+}
 
-export const MoviesCard = () => {
+export const MoviesCard = ({ data }: MovieRoom) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const goSeatPage = (id: number) => {
+    navigate(`/seats/${id}`);
+    dispatch(addMovieInfo(data?.movie));
+  };
+
   return (
     <Card>
       <S.ImgBgCard>
         <CardBody>
           <S.CardImg>
-            <img src={movieData?.img_url} alt="imagem-filme" />
+            <img src={data?.movie?.img_url} alt="imagem-filme" />
             <div className="movie">
               <div>
                 <div className="justify-content-between">
-                  <h4>{movieData?.filmeName}</h4>
+                  <h4>{data?.movie?.movieName}</h4>
                   <span className="minute">1h32</span>
                 </div>
                 <hr />
-                <p>{movieData.description}</p>
-                <Badge>ANIMAÇÃO</Badge>
+                <p>{data?.movie?.description}</p>
+                <S.DFlexGap>
+                  {data?.movie?.gender?.map((item) => (
+                    <Badge>{item}</Badge>
+                  ))}
+                </S.DFlexGap>
               </div>
               <div>
                 <label className="text-yellow">SALAS: </label>
                 <label className="text-blue">DUBLADO</label>
-                <time>19:49</time>
+                <S.DFlexGap>
+                  {data?.dateTimeDubbed?.map((item) => (
+                    <time onClick={() => goSeatPage(data?.room_id)}>
+                      {item}
+                    </time>
+                  ))}
+                </S.DFlexGap>
               </div>
               <div>
                 <label className="text-yellow">SALAS: </label>
                 <label className="text-blue">LEGENDADO</label>
-                <time>19:49</time>
+                <S.DFlexGap>
+                  {data?.dateTimeSubtitled?.map((item) => (
+                    <time onClick={() => goSeatPage(data?.room_id)}>
+                      {item}
+                    </time>
+                  ))}
+                </S.DFlexGap>
               </div>
             </div>
           </S.CardImg>

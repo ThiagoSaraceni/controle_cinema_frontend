@@ -5,7 +5,7 @@ interface CardProps {
   children: ReactNode;
 }
 
-const CardBackground = styled.div`
+export const CardBackground = styled.div`
   border-radius: 8px;
   box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%) !important;
   background-color: #21262d;
