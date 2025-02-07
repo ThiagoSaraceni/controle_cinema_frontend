@@ -36,6 +36,34 @@ const Card = styled.div<CardProps>`
   align-items: center;
   gap: 12px;
   margin-bottom: 1rem;
+
+  //Media query celular
+  @media (min-width: 481px) and (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      font-family: "Rubik Doodle Shadow", serif;
+      font-weight: 400;
+      font-style: normal;
+      color: white;
+      font-size: 2.2rem;
+      margin-bottom: 0px !important;
+    }
+
+    img {
+      width: 2.6rem;
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    border-radius: 0;
+  }
 `;
 
 export const PageHeader = ({
