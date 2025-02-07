@@ -1,30 +1,11 @@
 import { useState } from "react";
-import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
-import styled from "styled-components";
+import * as S from "./styles";
 
 interface WeekDay {
   label: string;
   day: string;
 }
-
-interface PropsDayItem {
-  isActive: boolean;
-}
-
-const DivHeader = styled.div`
-  display: flex;
-  justify-content: space-around;
-  font-size: 2rem;
-  font-family: "Saira";
-  font-weight: 300;
-  font-style: normal;
-`;
-
-const DayItem = styled.div<PropsDayItem>`
-  color: ${({ isActive }) => !isActive && "#737380"};
-  cursor: pointer;
-`;
 
 const date = "14/10";
 
@@ -62,20 +43,20 @@ export const HeaderDates = () => {
   ];
 
   return (
-    <Card>
+    <S.WeekCard>
       <CardBody>
-        <DivHeader>
+        <S.DivHeader>
           {weekDays.map((item) => (
-            <DayItem
+            <S.DayItem
               isActive={currentDate === item?.day}
               onClick={() => setCurrentDate(item?.day)}
             >
               <h6>{item?.label}</h6>
               <h6>{item.day}</h6>
-            </DayItem>
+            </S.DayItem>
           ))}
-        </DivHeader>
+        </S.DivHeader>
       </CardBody>
-    </Card>
+    </S.WeekCard>
   );
 };

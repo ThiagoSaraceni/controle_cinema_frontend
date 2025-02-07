@@ -63,6 +63,7 @@ const Card = styled.div<CardProps>`
     width: 100%;
 
     border-radius: 0;
+    margin-bottom: 0 !important;
   }
 `;
 
