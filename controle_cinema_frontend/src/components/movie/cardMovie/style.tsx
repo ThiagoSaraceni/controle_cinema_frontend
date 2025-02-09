@@ -97,6 +97,10 @@ export const CardImg = styled.div`
         font-size: 18px;
       }
 
+      span {
+        padding-left: 10px;
+      }
+
       p {
         overflow: hidden;
         display: -webkit-box;
