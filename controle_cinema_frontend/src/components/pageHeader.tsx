@@ -36,6 +36,7 @@ const Card = styled.div<CardProps>`
   align-items: center;
   gap: 12px;
   margin-bottom: 1rem;
+  width: 100%;
 
   //Media query celular
   @media (min-width: 481px) and (max-width: 768px) {

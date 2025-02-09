@@ -6,10 +6,12 @@ interface PropsDayItem {
 }
 
 export const WeekCard = styled(CardBackground)`
-  background-color: rgb(45, 53, 63);
-  border-radius: 0px;
-  position: fixed;
-  width: 100%;
+  @media (min-width: 481px) and (max-width: 768px) {
+    border-radius: 0px;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(45, 53, 63);
+  }
 `;
 
 export const DivHeader = styled.div`

@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { Badge } from "../../badge";
-import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import * as S from "./style";
 import { useDispatch } from "react-redux";
@@ -22,9 +21,10 @@ export interface MovieRoom {
     status: string;
     room_id: number;
   };
+  keyItem: number;
 }
 
-export const MoviesCard = ({ data }: MovieRoom) => {
+export const MoviesCard = ({ data, keyItem }: MovieRoom) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -33,8 +33,10 @@ export const MoviesCard = ({ data }: MovieRoom) => {
     dispatch(addMovieInfo(data?.movie));
   };
 
+  console.log({ data, keyItem });
+
   return (
-    <Card>
+    <S.CardMovie firstItem={keyItem === 0}>
       <S.ImgBgCard>
         <CardBody>
           <S.CardImg>
@@ -79,6 +81,6 @@ export const MoviesCard = ({ data }: MovieRoom) => {
           </S.CardImg>
         </CardBody>
       </S.ImgBgCard>
-    </Card>
+    </S.CardMovie>
   );
 };

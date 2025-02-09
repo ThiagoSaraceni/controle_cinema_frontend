@@ -8,7 +8,10 @@ import styled from "styled-components";
 
 export const HomeCinema = () => {
   const DCol = styled.div`
-    display: flex;
+    @media (min-width: 481px) and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
   `;
 
   return (
@@ -22,8 +25,8 @@ export const HomeCinema = () => {
         {/* logica do header dates é dar um get pelo dia que tem os filmes e meu retorno sera os filmes desse dia */}
         <HeaderDates />
       </DCol>
-      {mock.map((item) => (
-        <MoviesCard data={item} />
+      {mock.map((item, key) => (
+        <MoviesCard data={item} keyItem={key} />
       ))}
     </>
   );
