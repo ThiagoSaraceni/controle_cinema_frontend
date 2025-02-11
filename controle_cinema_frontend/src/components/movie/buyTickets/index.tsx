@@ -5,6 +5,7 @@ import { Ticket } from "./ticket";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux";
 import { finishPurchase } from "../../../redux/movieSlice";
+import { CardWfull } from "../../../ pages/cinema/seats/seatsInfo/styles";
 
 export const BuyTickets = () => {
   const { seatsMarked, finishPurchase: isFinishedPurchase } = useSelector(
@@ -29,10 +30,8 @@ export const BuyTickets = () => {
     );
   }
 
-  console.log({ fullPrice, halfPrice });
-
   return (
-    <Card>
+    <CardWfull>
       <CardBody>
         <Ticket
           title="INTEIRA"
@@ -50,6 +49,6 @@ export const BuyTickets = () => {
           cantAdd={cantAdd}
         />
       </CardBody>
-    </Card>
+    </CardWfull>
   );
 };

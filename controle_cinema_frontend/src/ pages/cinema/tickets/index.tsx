@@ -18,11 +18,8 @@ export const TicketsMovie = () => {
     (state: RootState) => state.movie
   );
 
-  console.log(finishPurchase);
-
   const handleEndBuy = () => {
     //exemplo enviando ao banco o finish purchase
-    console.log("compra finalizada", finishPurchase);
     navigate(`/end-purchase`);
   };
 

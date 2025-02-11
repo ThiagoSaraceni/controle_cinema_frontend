@@ -33,8 +33,6 @@ export const MoviesCard = ({ data, keyItem }: MovieRoom) => {
     dispatch(addMovieInfo(data?.movie));
   };
 
-  console.log({ data, keyItem });
-
   return (
     <S.CardMovie firstItem={keyItem === 0}>
       <S.ImgBgCard>

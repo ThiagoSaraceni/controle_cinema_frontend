@@ -24,4 +24,8 @@ export const TextFinish = styled.h2`
   margin-top: 1rem;
   font-weight: 600;
   text-align: center;
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    margin-top: 0;
+  }
 `;
