@@ -16,6 +16,10 @@ export const BarProgression = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 25%;
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Icon = styled.div<IconProps>`

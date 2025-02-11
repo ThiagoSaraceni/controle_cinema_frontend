@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CardBackground } from "../../../../components/card";
 
 interface IAvatarProps {
   bgColor?: string;
@@ -57,6 +58,10 @@ export const DFlex = styled.div`
     text-align: center;
     font-weight: 400;
   }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    gap: 7px;
+  }
 `;
 
 export const DisplayFlexHeader = styled.div`
@@ -76,6 +81,11 @@ export const DisplayFlexHeader = styled.div`
     }
     width: 30px;
     height: 30px;
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      width: 10px;
+      height: 10px;
+    }
   }
 `;
 
@@ -101,6 +111,7 @@ export const Avatar = styled.div<IAvatarProps>`
 export const CenterContent = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 export const Screen = styled.div`
@@ -115,4 +126,9 @@ export const Screen = styled.div`
   color: #000000a4;
   font-weight: bold;
   border-bottom: 3px solid rgb(240, 240, 240);
+`;
+
+export const CardWfull = styled(CardBackground)`
+  width: 100%;
+  overflow: hidden;
 `;

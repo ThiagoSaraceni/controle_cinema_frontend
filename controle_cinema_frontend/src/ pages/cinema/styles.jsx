@@ -5,6 +5,15 @@ export const Background = styled.div`
   color: white;
   min-height: 100vh;
   background-image: url("/Frame 60.jpg");
+  background-size: cover;
+  background-position: center;
+
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+
+  @media (min-width: 481px) and (max-width: 768px) {
+  }
 `;
 
 export const Content = styled.div`

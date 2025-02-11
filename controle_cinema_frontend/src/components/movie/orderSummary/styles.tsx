@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import { CardBackground } from "../../card";
 
 interface IOrder {
   ticket?: boolean;
@@ -61,5 +62,11 @@ export const TrashIcon = styled(FontAwesomeIcon)`
     color: #ea5455;
     transition: 0.3s ease;
     cursor: pointer;
+  }
+`;
+
+export const CardSummary = styled(CardBackground)`
+  @media (min-width: 481px) and (max-width: 768px) {
+    display: none;
   }
 `;

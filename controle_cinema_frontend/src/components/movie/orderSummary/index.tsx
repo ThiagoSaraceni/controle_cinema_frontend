@@ -21,7 +21,7 @@ export const OrderSummary = ({ ticket }: IPropsOrder) => {
 
   // TODO: colocar cor para os badges de classificacao filme
   return (
-    <Card>
+    <S.CardSummary>
       <CardBody>
         <S.Order ticket={ticket}>
           <S.FlexBetween>
@@ -53,6 +53,6 @@ export const OrderSummary = ({ ticket }: IPropsOrder) => {
           </span>
         </S.Order>
       </CardBody>
-    </Card>
+    </S.CardSummary>
   );
 };
