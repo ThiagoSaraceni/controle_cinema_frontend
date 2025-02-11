@@ -7,6 +7,11 @@ export const BodyInfo = styled.div`
     height: 80px;
     object-fit: cover;
     background-color: #f0f0f0 !important;
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   label {
@@ -14,11 +19,20 @@ export const BodyInfo = styled.div`
     display: block;
     font-size: 20px;
     margin-bottom: 8px;
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      font-size: 14px;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
   }
 
   h4 {
     font-family: "Saira";
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 800;
   }
 
@@ -34,6 +48,13 @@ export const BodyInfo = styled.div`
     height: 80px;
     border-radius: 50%;
     font-size: 26px;
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      width: 50px;
+      height: 50px;
+
+      font-size: 18px;
+    }
   }
 
   display: flex;
@@ -45,4 +66,10 @@ export const Dflex = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 `;

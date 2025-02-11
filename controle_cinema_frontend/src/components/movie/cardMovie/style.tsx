@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import { CardBackground } from "../../card";
+
+interface CardMovieProps {
+  firstItem: boolean;
+}
 
 export const CardImg = styled.div`
   display: flex;
@@ -86,6 +91,32 @@ export const CardImg = styled.div`
       width: fit-content;
       cursor: pointer;
     }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      h4 {
+        font-size: 18px;
+      }
+
+      span {
+        padding-left: 10px;
+      }
+
+      p {
+        overflow: hidden;
+        display: -webkit-box;
+        line-height: 20px;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      label {
+        font-size: 1rem;
+      }
+
+      time {
+        font-size: 1rem;
+      }
+    }
   }
 `;
 
@@ -98,4 +129,12 @@ export const DFlexGap = styled.div`
   display: flex;
   align-items: center;
   gap: 0.7rem;
+`;
+
+//primeiro item tem 90 px q deixa igual os positions entao dou o margin pra ficar igual e mais 16 de px que é 1rem para n sair do padrao.
+export const CardMovie = styled(CardBackground)<CardMovieProps>`
+  @media (min-width: 481px) and (max-width: 768px) {
+    margin: 1rem;
+    margin-top: ${({ firstItem }) => firstItem && "106px"};
+  }
 `;

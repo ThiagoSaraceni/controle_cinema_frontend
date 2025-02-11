@@ -15,6 +15,11 @@ const BadgeBody = styled.div<BadgeProps>`
   font-weight: ${({ thin }) => (thin ? 200 : 700)};
 
   font-family: "Inter", sans-serif;
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
 `;
 
 export const Badge = ({ children, thin, bgColor }: BadgeProps) => {
