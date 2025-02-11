@@ -11,9 +11,6 @@ export const Background = styled.div`
   width: 100%;
   max-width: 100%;
   overflow: auto;
-
-  @media (min-width: 481px) and (max-width: 768px) {
-  }
 `;
 
 export const Content = styled.div`

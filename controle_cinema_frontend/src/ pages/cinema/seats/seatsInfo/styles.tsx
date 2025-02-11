@@ -17,6 +17,10 @@ export const H5 = styled.h5`
   font-family: "Saira";
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Legend = styled.ul`
@@ -34,6 +38,12 @@ export const Legend = styled.ul`
     font-family: "Saira";
     font-weight: 400;
     margin-right: 0.8rem;
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    span {
+      font-size: 14px;
+    }
   }
 `;
 

@@ -9,7 +9,7 @@ export const CardSeats = () => {
     <S.CardWfull>
       <CardBody>
         <SeatPlaces />
-        {/* <SubtitlesChair /> */}
+        <SubtitlesChair />
       </CardBody>
     </S.CardWfull>
   );
