@@ -5,7 +5,6 @@ export const Background = styled.div`
   color: white;
   min-height: 100vh;
   background-image: url("/Frame 60.jpg");
-  background-size: cover;
   background-position: center;
 
   width: 100%;
