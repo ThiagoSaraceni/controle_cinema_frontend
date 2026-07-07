@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Card } from "../../card";
 
 interface InterfaceBtn {
   isDisabledBtnBack?: boolean;

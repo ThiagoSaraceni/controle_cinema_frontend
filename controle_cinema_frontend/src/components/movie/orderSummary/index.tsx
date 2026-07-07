@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Badge } from "../../badge";
-import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import { RootState } from "../../../redux";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";

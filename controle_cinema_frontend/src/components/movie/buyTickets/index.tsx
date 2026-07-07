@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card } from "../../card";
 import { CardBody } from "../../cardBody";
 import { Ticket } from "./ticket";
 import { useDispatch, useSelector } from "react-redux";

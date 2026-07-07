@@ -1,4 +1,3 @@
-import { UserBlockSvg } from "../../../../assets/svg/cinema/user-icon";
 import * as S from "../seatsInfo/styles";
 
 interface SubtitleInterface {
