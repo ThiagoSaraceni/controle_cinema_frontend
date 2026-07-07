@@ -53,6 +53,6 @@
     "file-loader": "^6.2.0"
   },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   }
 }
