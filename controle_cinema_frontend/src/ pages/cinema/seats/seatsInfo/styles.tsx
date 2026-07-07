@@ -114,8 +114,9 @@ export const Avatar = styled.div<IAvatarProps>`
   font-weight: bold;
   font-family: "Saira";
   cursor: ${({ disabled }) => !disabled && "pointer"};
-  transition: ${({ clicked }) => clicked && "200ms"};
-  transform: ${({ clicked }) => clicked && "scale(1.5) !important"};
+  transform-origin: center;
+  transition: transform 200ms ease;
+  transform: ${({ clicked }) => (clicked ? "scale(1.5)" : "scale(1)")};
 `;
 
 export const CenterContent = styled.div`

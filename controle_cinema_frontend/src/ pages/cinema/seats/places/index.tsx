@@ -10,7 +10,10 @@ import { FILEIRAS } from "../../../../constants/movieSeats";
 export type SeatStatus = 0 | 1 | 2; // 0: Disponível, 1: Selecionado, 2: Reservado
 
 export const SeatPlaces = () => {
-  const [clicked, setClicked] = useState(false);
+  const [clickedSeat, setClickedSeat] = useState<{
+    row: number;
+    col: number;
+  } | null>(null);
   const mockApiResponse = {
     seats: [
       { row: "b", column: 1, status: 2 }, // Reservado
@@ -42,8 +45,8 @@ export const SeatPlaces = () => {
   const [seats, setSeats] = useState<SeatStatus[][]>(inicializarAssentos);
 
   const toggleSeat = (row: number, col: number) => {
-    setClicked(true);
-    setTimeout(() => setClicked(false), 200); // Duração da animação
+    setClickedSeat({ row, col });
+    setTimeout(() => setClickedSeat(null), 200);
 
     if (seats[row][col] === 2) return; // Assento reservado não pode ser alterado.
 
@@ -99,12 +102,21 @@ export const SeatPlaces = () => {
                       </p>
                     )}
                     {valueArray === 0 ? (
-                      <S.Avatar onClick={() => toggleSeat(rowIndex, colIndex)}>
+                      <S.Avatar
+                        clicked={
+                          clickedSeat?.row === rowIndex &&
+                          clickedSeat?.col === colIndex
+                        }
+                        onClick={() => toggleSeat(rowIndex, colIndex)}
+                      >
                         <ChairIcon />
                       </S.Avatar>
                     ) : valueArray === 1 ? (
                       <S.Avatar
-                        clicked={clicked}
+                        clicked={
+                          clickedSeat?.row === rowIndex &&
+                          clickedSeat?.col === colIndex
+                        }
                         bgColor="#D0FF00"
                         onClick={() => toggleSeat(rowIndex, colIndex)}
                       >
